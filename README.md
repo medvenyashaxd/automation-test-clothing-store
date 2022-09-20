@@ -1,0 +1,1 @@
+# automation-qa-clothing-store
