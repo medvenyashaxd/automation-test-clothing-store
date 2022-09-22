@@ -45,3 +45,4 @@ class Action:
     def select_by_value(self, locator, value):
         action = Select(self.element_is_present(locator))
         action.select_by_value(value)
+

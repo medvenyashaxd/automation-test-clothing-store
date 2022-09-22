@@ -41,3 +41,4 @@ class TshirtsPage(Action):
             self.element_is_present(self.locator.BUTTON_CONTINUE_SHOPPING).click()
 
         return added_product
+

@@ -17,4 +17,3 @@ class TestTshirts:
             check_added_out_product = t_shirts_page.check_sleeve_t_shirts()
 
             assert check_added_out_product == 'Faded Short Sleeve T-shirts'
-
