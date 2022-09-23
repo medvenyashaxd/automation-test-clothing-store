@@ -10,7 +10,7 @@ class TestTshirts:
     class TestSleeveTshirts:
 
         @allure.title('Check sleeve T-shirts')
-        def test_card_tshirts(self, driver):
+        def test_card_faded_short_sleeve_tshirts(self, driver):
             t_shirts_page = TshirtsPage(driver,
                                             'http://automationpractice.com/index.php?id_category=5&controller=category')
             t_shirts_page.open()

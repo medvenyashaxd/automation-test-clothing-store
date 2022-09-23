@@ -1,3 +1,5 @@
+import random
+
 import allure
 
 from selenium.webdriver import ActionChains
@@ -16,15 +18,15 @@ class Action:
         self.driver.get(self.url)
 
     @allure.step('Finds a visible element')
-    def element_is_visible(self, locator, timeout=5):
+    def element_is_visible(self, locator, timeout=15):
         return wait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
 
     @allure.step('Finds a present element')
-    def element_is_present(self, locator, timeout=5):
+    def element_is_present(self, locator, timeout=15):
         return wait(self.driver, timeout).until(ec.presence_of_element_located(locator))
 
     @allure.step('Finds a present elements')
-    def elements_are_presents(self, locator, timeout=5):
+    def elements_are_presents(self, locator, timeout=15):
         return wait(self.driver, timeout).until(ec.presence_of_all_elements_located(locator))
 
     @allure.step('Moves the mouse cursor an element')
@@ -46,3 +48,9 @@ class Action:
         action = Select(self.element_is_present(locator))
         action.select_by_value(value)
 
+    @allure.step('Press random amount quantity up ')
+    def click_random_amount_quantity_up(self, locator):
+        number_of_clicks = random.randint(1, 2)
+        while number_of_clicks != 0:
+            self.element_is_present(locator).click()
+            number_of_clicks -= 1
