@@ -1,5 +1,4 @@
 import random
-import time
 import allure
 
 from locators.t_shirts_locators import TshirtsLocators
@@ -8,7 +7,6 @@ from pages.action import Action
 
 class TshirtsPage(Action):
     locator = TshirtsLocators
-
 
     @allure.step('Check sleeve t shirts')
     def check_sleeve_t_shirts(self):
@@ -35,4 +33,3 @@ class TshirtsPage(Action):
             self.element_is_present(self.locator.BUTTON_CONTINUE_SHOPPING).click()
 
         return added_product
-
