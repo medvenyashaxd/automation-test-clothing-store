@@ -14,12 +14,12 @@ class DressesPage(Action):
     @allure.step('Сhecking a specific dress')
     def check_dresses(self, dress):
         dresses = {'Printed summer dress long':
-                   {'title_type_dress': self.locator_summer_dresses.SUMMER_DRESSES,
-                       'button_more': self.locator_summer_dresses.BUTTON_MORE_PRINTED_SUMMER_DRESS_LONG},
+                       {'title_type_dress': self.locator_summer_dresses.SUMMER_DRESSES,
+                        'button_more': self.locator_summer_dresses.BUTTON_MORE_PRINTED_SUMMER_DRESS_LONG},
 
                    'Printed summer dress short':
                        {'title_type_dress': self.locator_summer_dresses.SUMMER_DRESSES,
-                           'button_more': self.locator_summer_dresses.BUTTON_MORE_PRINTED_SUMMER_DRESS_SHORT},
+                        'button_more': self.locator_summer_dresses.BUTTON_MORE_PRINTED_SUMMER_DRESS_SHORT},
 
                    'Printed summer chiffon dress':
                        {'title_type_dress': self.locator_summer_dresses.SUMMER_DRESSES,
@@ -27,11 +27,11 @@ class DressesPage(Action):
 
                    'Printed evening dress straight sleeves':
                        {'title_type_dress': self.locator_evening_dresses.EVENING_DRESSES,
-                           'button_more': self.locator_evening_dresses.BUTTON_MORE_PRINTED_EVENING_DRESS},
+                        'button_more': self.locator_evening_dresses.BUTTON_MORE_PRINTED_EVENING_DRESS},
 
                    'Printed double casual dress':
                        {'title_type_dress': self.locator_casual_dresses.CASUAL_DRESSES,
-                           'button_more': self.locator_casual_dresses.BUTTON_MORE_CASUAL_DOUBLE_PRINTED_DRESS}}
+                        'button_more': self.locator_casual_dresses.BUTTON_MORE_CASUAL_DOUBLE_PRINTED_DRESS}}
 
         RANDOM_NUM = random.randint(1, 4)
 
@@ -52,29 +52,29 @@ class DressesPage(Action):
 
             if dresses[dress] == 'Printed summer dress long':
                 if RANDOM_NUM == 1:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_BLACK).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_BLACK).click()
                 elif RANDOM_NUM == 2:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_BLUE).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_BLUE).click()
                 elif RANDOM_NUM == 3:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_ORANGE).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_ORANGE).click()
                 else:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
 
             elif dresses[dress] == 'Printed summer dress short':
                 if RANDOM_NUM == 1 or 2:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
                 else:
                     self.element_is_present(self.locator_summer_dresses.COLOR_WHITE).click()
 
             elif dresses[dress] == 'Printed summer chiffon dress':
                 if RANDOM_NUM == 1 or 2:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_YELLOW).click()
                 else:
                     self.element_is_present(self.locator_summer_dresses.COLOR_GREEN).click()
 
             elif dresses[dress] == 'Printed evening dress straight sleeves':
                 if RANDOM_NUM == 1 or 2:
-                        self.element_is_present(self.locator_summer_dresses.COLOR_BEIGE).click()
+                    self.element_is_present(self.locator_summer_dresses.COLOR_BEIGE).click()
                 else:
                     self.element_is_present(self.locator_summer_dresses.COLOR_PINK).click()
 
