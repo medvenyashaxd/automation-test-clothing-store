@@ -1,5 +1,4 @@
 import random
-
 import allure
 
 from selenium.webdriver import ActionChains
@@ -9,9 +8,9 @@ from selenium.webdriver.support import expected_conditions as ec
 
 
 class Action:
-    def __init__(self, driver, url):
-        self.driver = driver
-        self.url = url
+    def __init__(self, _driver, _url):
+        self.driver = _driver
+        self.url = _url
 
     @allure.step('Gets link')
     def open(self):
