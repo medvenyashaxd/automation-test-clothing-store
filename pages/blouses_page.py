@@ -32,9 +32,13 @@ class BlousesPage(Action):
         self.element_is_present(self.locator.BUTTON_ADD_TO_CARD).click()
 
         with allure.step('Take the name of the product for comparison'):
-            product_added_name = self.element_is_visible(self.locator.PRODUCT_ADDED_NAME).text
+            added_product_name = self.element_is_visible(self.locator.PRODUCT_ADDED_NAME).text
 
         with allure.step('Keep shopping'):
             self.element_is_present(self.locator.BUTTON_CONTINUE_SHOPPING).click()
 
-        return product_added_name
+        with allure.step('Checking the item added to the cart and deleting it'):
+            product_in_cart = self.check_shopping_cart_summary()
+            assert added_product_name in product_in_cart
+
+        return True

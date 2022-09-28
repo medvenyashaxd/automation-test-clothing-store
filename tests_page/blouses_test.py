@@ -2,6 +2,7 @@ import allure
 
 from pages.blouses_page import BlousesPage
 
+
 @allure.suite('Test blouses')
 class TestBlouses:
 
@@ -13,9 +14,7 @@ class TestBlouses:
             sleeved_blouse_page = BlousesPage(driver,
                                             'http://automationpractice.com/index.php?id_category=7&controller=category')
             sleeved_blouse_page.open()
+            item_added_to_cart_and_checked = sleeved_blouse_page.check_short_sleeved_blouse()
 
-            product_added_name = sleeved_blouse_page.check_short_sleeved_blouse()
-
-            assert product_added_name == 'Blouse'
-
+            assert item_added_to_cart_and_checked is True
 

@@ -5,6 +5,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.support import expected_conditions as ec
+from locators.shopping_cart_summary_locators import ShoppingCartSummaryLocators
 
 
 class Action:
@@ -17,8 +18,12 @@ class Action:
         self.driver.get(self.url)
 
     @allure.step('Finds a visible element')
-    def element_is_visible(self, locator, timeout=15):
+    def element_is_visible(self, locator, timeout=20):
         return wait(self.driver, timeout).until(ec.visibility_of_element_located(locator))
+
+    @allure.step('Finds visible elements')
+    def element_are_visible(self, locator, timeout=15):
+        return wait(self.driver, timeout).until(ec.visibility_of_all_elements_located(locator))
 
     @allure.step('Finds a present element')
     def element_is_present(self, locator, timeout=15):
@@ -53,3 +58,31 @@ class Action:
         while number_of_clicks != 0:
             self.element_is_present(locator).click()
             number_of_clicks -= 1
+
+    locators = ShoppingCartSummaryLocators()
+
+    @allure.step('Go to the summary cart, check the added product and remove it from the cart')
+    def check_shopping_cart_summary(self):
+        with allure.step('Go to the summary cart'):
+            self.move_mouse_to_element(self.element_is_present(self.locators.TITLE_CART_SUMMARY))
+            self.move_mouse_to_element(self.element_is_visible(self.locators.CHECK_OUT))
+            self.element_is_present(self.locators.CHECK_OUT).click()
+
+        with allure.step('Check the added product'):
+            products_added_in_cart_summary = self.elements_are_presents(self.locators.PRODUCT_NAME)
+            product_name = []
+            for name in products_added_in_cart_summary:
+                text = name.text
+                product_name.append(text)
+
+        with allure.step('remove product from the cart'):
+            buttons_delete = self.elements_are_presents(self.locators.BUTTON_DELETE)
+            for button in buttons_delete:
+                button.click()
+
+        with allure.step('Confirmation that the basket is empty'):
+            delete_notification = self.element_is_visible(self.locators.DELETE_NOTIFICATION).text
+
+        assert delete_notification == 'Your shopping cart is empty.', 'Cart not cleared'
+
+        return product_name
