@@ -1,5 +1,6 @@
 import allure
 
+from pages.actions import Actions
 from pages.t_shirts_page import TshirtsPage
 
 
@@ -11,9 +12,13 @@ class TestTshirts:
 
         @allure.title('Check sleeve T-shirts')
         def test_card_faded_short_sleeve_tshirts(self, driver):
-            t_shirts_page = TshirtsPage(driver,
-                                            'http://automationpractice.com/index.php?id_category=5&controller=category')
-            t_shirts_page.open()
-            item_added_to_cart_and_checked = t_shirts_page.check_sleeve_t_shirts()
+            url = 'https://automationpractice.com/index.php?id_category=5&controller=category'
 
-            assert item_added_to_cart_and_checked is True
+            t_shirts_page = TshirtsPage(driver, url)
+            t_shirts_page.open()
+            added_product_name = t_shirts_page.check_sleeve_t_shirts()
+
+            with allure.step('Checking the item added to the cart and deleting it'):
+                product_in_cart = Actions(driver, url).check_shopping_cart_summary()
+
+            assert added_product_name in product_in_cart, 'Added product is not in the cart'

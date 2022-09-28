@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class BlousesLocators:
+
     VIEW_LIST = (By.CSS_SELECTOR, 'i[class="icon-th-list"]')
     BUTTON_MORE = (By.CSS_SELECTOR, 'a[class="button lnk_view btn btn-default"]')
     BUTTON_QUANTITY_UP = (By.CSS_SELECTOR, 'a[class="btn btn-default button-plus product_quantity_up"]')

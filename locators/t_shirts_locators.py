@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 
 
 class TshirtsLocators:
+
     SLEEVE_T_SHIRTS = (By.CSS_SELECTOR, 'img[alt="Faded Short Sleeve T-shirts"]')
     BUTTON_MORE = (By.CSS_SELECTOR, 'a[title="View"]')
     QUANTITY_UP = (By.CSS_SELECTOR, 'a[data-field-qty="qty"][class="btn btn-default button-plus product_quantity_up"]')
