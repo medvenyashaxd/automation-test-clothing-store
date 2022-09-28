@@ -14,6 +14,6 @@ class TestTshirts:
             t_shirts_page = TshirtsPage(driver,
                                             'http://automationpractice.com/index.php?id_category=5&controller=category')
             t_shirts_page.open()
-            check_added_out_product = t_shirts_page.check_sleeve_t_shirts()
+            item_added_to_cart_and_checked = t_shirts_page.check_sleeve_t_shirts()
 
-            assert check_added_out_product == 'Faded Short Sleeve T-shirts'
+            assert item_added_to_cart_and_checked is True
