@@ -42,10 +42,6 @@ class Actions:
         action = ActionChains(self.driver)
         action.scroll_to_element(locator).perform()
 
-    @allure.step('Moves screen attention to an element')
-    def scroll_to_element2(self, locator):
-        self.driver.execute_script("arguments[0].scrollIntoView();", locator)
-
     @allure.step('Selects the specified value from the provided values')
     def select_by_value(self, locator, value):
         action = Select(self.element_is_present(locator))

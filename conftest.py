@@ -1,8 +1,8 @@
-from datetime import datetime
-
 import allure
 import pytest
+
 from selenium import webdriver
+from datetime import datetime
 
 
 @pytest.fixture(scope='function')
