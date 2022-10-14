@@ -8,7 +8,7 @@ from datetime import datetime
 @pytest.fixture(scope='function')
 def driver():
     driver_path = \
-        r'C:\Users\xmedv\PycharmProjects\webdriver\.wdm\drivers\chromedriver\win32\105.0.5195\chromedriver.exe'
+        r'C:\Users\xmedv\PycharmProjects\chromedriver.exe'
 
     driver = webdriver.Chrome(executable_path=driver_path)
     driver.maximize_window()

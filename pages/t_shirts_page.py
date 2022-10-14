@@ -15,7 +15,7 @@ class TshirtsPage(Actions):
             card_sleeve_tshirts = self.element_is_present(locator.SLEEVE_T_SHIRTS)
 
         with allure.step('Move to the product'):
-            self.scroll_to_element2(card_sleeve_tshirts)
+            self.scroll_to_element(card_sleeve_tshirts)
             self.move_mouse_to_element(card_sleeve_tshirts)
 
         self.element_is_present(locator.BUTTON_MORE).click()
