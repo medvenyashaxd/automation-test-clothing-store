@@ -10,3 +10,5 @@ Based on python, selenium library and alure report. Testing an online store, the
 allure report:
 
 ![clothing-store-allure](https://user-images.githubusercontent.com/110237352/195908426-20b5a696-c6cf-4017-a983-58a6fd1fe5ef.gif)
+
+WebSite: http://automationpractice.com/index.php
