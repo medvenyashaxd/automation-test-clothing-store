@@ -1,4 +1,4 @@
-# automation-test-clothing-store
+# Automation test clothing store
 
 Based on python, selenium library and alure report. 
 
