@@ -1,6 +1,6 @@
 # Automation test clothing store
 
-Based on python, selenium library and alure report. 
+Based on python, selenium framework and alure report. 
 
 Testing an online store, there are such elements as dragging an element to hover over an element, select element by value, and checking a basket with a product.
 
